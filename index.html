@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="tabuada.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="all">
+<div  data-aos="fade-right"
+data-aos-offset="300"
+data-aos-easing="ease-in-sine"   data-aos-duration="1500" class="container">
+<button class="modebtn" id="toggle-mode"><i class="fa fa-sun-o" aria-hidden="true"></i></button>
+<h1>Tabuada Dinâmica</h1>
+
+<p>Digite um valor para gerar tabuada:</p>
+<input placeholder="Exemplo:6" type="number" id="numero">
+<button class="btn" onclick="gerarTabuada()">Gerar Tabuada</button>
+<table id="tabela-tabuada">
+
+</table>
+ </div>
+
+</div>
+<div data-aos="zoom-out-right" class="container2">
+<img id="img" src="https://media.tenor.com/YAOhbZ5GZy4AAAAd/nazar%C3%A9.gif">
+
+
+   <footer>
+   <a href="https://github.com/MarquinCss"><i class="fa fa-github" aria-hidden="true"></i></a>  <a>Marco Marchi</a>
+   <a href="https://www.linkedin.com/in/marcoant%C3%B4niomarchicarreiro/"><i class="fa fa-linkedin" aria-hidden="true"></i></a> <br>
+   
+   </footer>
+</div>
+
+    <script>
+        const toggleBtn = document.getElementById ("toggle-mode");
+const body = document.body
+
+toggleBtn.addEventListener('click', function () { 
+    document.getElementById("img").src = "https://media.tenor.com/KLLn2zrb7_YAAAAM/nazare-tedesco.gif"
+   body.classList.toggle('dark-mode')
+} )
+
+        function gerarTabuada (){
+        var numero = parseInt(document.getElementById("numero").value);
+        var tabela = document.getElementById("tabela-tabuada");
+
+        tabela.innerHTML = " "; //limar a tabela antes de gerar outra.
+
+        //gerar tabuada:
+
+        for (var i=1; i <= 10; i++){
+            var resultado = numero * i ;
+            var linha = "<tr><td>" + numero + " X " + i + "</td><td>" + " =  " + resultado + "</td></tr>";
+
+            tabela.innerHTML += linha
+        }
+    }
+  
+
+   
+    </script>
+</body>
+<script>
+    AOS.init();
+  </script>
+</html>
